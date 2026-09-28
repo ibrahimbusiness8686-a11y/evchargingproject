@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EV Charging Station</title>
+
+    <style>
+        /* ---------- BASIC SETTINGS ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f7f4;
+            color: #222;
+        }
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            background: #0b6b3a;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #b8ffcf;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: #dff5e7;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #075b32;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            background: #0b6b3a;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #084c2b;
+        }
+
+        /* ---------- STATION SECTION ---------- */
+
+        .stations {
+            padding: 50px 8%;
+        }
+
+        .stations h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 30px;
+            color: #075b32;
+        }
+
+        .station-container {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- STATION CARD ---------- */
+
+        .station-card {
+            background: white;
+            width: 300px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .station-card h3 {
+            color: #0b6b3a;
+            margin-bottom: 15px;
+        }
+
+        .station-card p {
+            margin: 10px 0;
+        }
+
+        .available {
+            color: green;
+            font-weight: bold;
+        }
+
+        .busy {
+            color: red;
+            font-weight: bold;
+        }
+
+        .charge-button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 11px;
+            border: none;
+            border-radius: 6px;
+            background: #0b6b3a;
+            color: white;
+            cursor: pointer;
+        }
+
+        .charge-button:hover {
+            background: #084c2b;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            margin-top: 30px;
+            background: #073b24;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            ⚡ EV Charge
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Stations</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <h1>Find Your EV Charging Station</h1>
+
+        <p>
+            Fast, reliable and convenient charging for your electric vehicle.
+        </p>
+
+        <button onclick="findStation()">
+            Find Charging Station
+        </button>
+
+    </section>
+
+
+    <!-- CHARGING STATIONS -->
+
+    <section class="stations">
+
+        <h2>Available Charging Stations</h2>
+
+        <div class="station-container">
+
+            <!-- CARD 1 -->
+
+            <div class="station-card">
+
+                <h3>Station 1</h3>
+
+                <p>📍 City Center</p>
+
+                <p>⚡ Fast Charger</p>
+
+                <p>💰 ₹15 / kWh</p>
+
+                <p class="available">
+                    ● Available
+                </p>
+
+                <button class="charge-button" onclick="charge('Station 1')">
+                    Charge Now
+                </button>
+
+            </div>
+
+
+            <!-- CARD 2 -->
+
+            <div class="station-card">
+
+                <h3>Station 2</h3>
+
+                <p>📍 Main Road</p>
+
+                <p>⚡ DC Fast Charger</p>
+
+                <p>💰 ₹18 / kWh</p>
+
+                <p class="available">
+                    ● Available
+                </p>
+
+                <button class="charge-button" onclick="charge('Station 2')">
+                    Charge Now
+                </button>
+
+            </div>
+
+
+            <!-- CARD 3 -->
+
+            <div class="station-card">
+
+                <h3>Station 3</h3>
+
+                <p>📍 Airport Road</p>
+
+                <p>⚡ Ultra Fast Charger</p>
+
+                <p>💰 ₹20 / kWh</p>
+
+                <p class="busy">
+                    ● Busy
+                </p>
+
+                <button class="charge-button" onclick="charge('Station 3')">
+                    Charge Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>© 2026 EV Charge Station | Clean Energy for a Better Future ⚡</p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function findStation() {
+            alert("Searching for nearby charging stations...");
+        }
+
+        function charge(stationName) {
+            alert("You selected " + stationName);
+        }
+
+    </script>
+
+</body>
+
+</html>
